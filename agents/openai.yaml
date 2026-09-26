@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma 设计稿组件化"
+  short_description: "通过本地插件扫描真实图层，由 AI 归纳可复用组件套件并替换设计稿中的元素"
+  default_prompt: "使用 $figma-componentize 扫描 Figma 中选中的设计稿，归纳可复用组件，优先复用已有组件，生成缺失组件并替换原元素，输出变更报告。"
