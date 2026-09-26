@@ -1,0 +1,20 @@
+{
+  "name": "Align — Component Migration",
+  "id": "forma-component-migration-mvp",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": [
+    "figma"
+  ],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ],
+    "devAllowedDomains": [
+      "http://localhost:8766"
+    ],
+    "reasoning": "Connect to the authenticated local Codex skill bridge while the development plugin is open."
+  }
+}

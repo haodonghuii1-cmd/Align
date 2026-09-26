@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><style>
+:root{--ink:#15191d;--muted:#77828a;--line:rgba(72,116,139,.18);--accent:#2b9fca;--accent-deep:#1974a4;--glass:rgba(255,255,255,.68)}
+*{box-sizing:border-box}body{margin:0;padding:14px;font:12px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 5%,#dff7ff 0,transparent 35%),radial-gradient(circle at 100% 35%,#dceefe 0,transparent 37%),linear-gradient(145deg,#f4f7f9,#eef7fb 58%,#f8fafc);min-height:100vh;position:relative}body:before,body:after{content:"";position:fixed;z-index:-1;border-radius:999px;filter:blur(24px);opacity:.65;pointer-events:none}body:before{width:180px;height:180px;right:-60px;top:160px;background:#cceeff}body:after{width:170px;height:170px;left:-75px;bottom:90px;background:#d9f7ff}.app-shell{border:1px solid rgba(255,255,255,.92);background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,255,255,.52));box-shadow:0 16px 38px rgba(46,103,133,.14),inset 0 1px rgba(255,255,255,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:20px;padding:17px;overflow:hidden}.top{display:flex;align-items:center;gap:10px}.logo{background:linear-gradient(145deg,#69d7ef,#217eaf);color:#fff;border:1px solid rgba(255,255,255,.5);box-shadow:0 6px 14px rgba(29,133,179,.24);border-radius:10px;width:34px;height:34px;display:grid;place-items:center;font-size:20px;font-weight:700}.top h1{font-size:21px;margin:0;letter-spacing:-.8px}.top:after{content:"";margin-left:auto;width:8px;height:8px;border-radius:50%;background:#61c9e8;box-shadow:0 0 0 4px rgba(97,201,232,.18)}h2{font-size:12px;margin:19px 0 8px;letter-spacing:.08em;text-transform:uppercase;color:#365563}p{margin:5px 0;color:var(--muted)}button,input,select{font:inherit}button{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.62);color:inherit;padding:8px 11px;cursor:pointer;box-shadow:0 2px 5px rgba(55,103,127,.05);transition:transform .15s,box-shadow .15s,background .15s}button:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 5px 12px rgba(39,126,166,.15);background:rgba(255,255,255,.9)}.primary:hover:not(:disabled){background:linear-gradient(135deg,#78e0f4,#2798c8);filter:brightness(1.03)}button:disabled{opacity:.42;cursor:default}.primary{background:linear-gradient(135deg,#68d8ef,#2189b8);color:#fff;border-color:#238dbb;box-shadow:0 6px 14px rgba(35,141,187,.25)}input,select{min-width:0;border:1px solid var(--line);background:rgba(255,255,255,.72);color:inherit;padding:8px 9px;border-radius:9px;outline:none}input:focus,select:focus{border-color:#63bddb;box-shadow:0 0 0 3px rgba(76,183,218,.16)}.rule{display:grid;grid-template-columns:1fr 1.3fr 29px;gap:7px;margin-bottom:8px}.rule button{padding:0;font-size:16px}.actions{display:flex;gap:7px;align-items:center}.actions>input{flex:1;min-width:0}.actions.right{justify-content:space-between}.section-card{border:1px solid rgba(255,255,255,.9);background:var(--glass);border-radius:15px;padding:12px;box-shadow:0 8px 20px rgba(58,112,143,.09);backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}#status{padding:10px 2px;min-height:39px;color:#238dbb;font-weight:500}#rows{max-height:245px;overflow:auto;border:1px solid rgba(66,128,158,.16);border-radius:11px;background:rgba(255,255,255,.4)}.row{padding:10px;border-bottom:1px solid rgba(67,124,149,.11);display:flex;gap:9px;align-items:flex-start}.row:last-child{border:0}.row input{margin-top:4px}.detail{flex:1;min-width:0}.name{font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.meta{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.match{color:#238dbb}.unmatched{color:#9b6f3e}.row button{font-size:10px;padding:3px 7px}.empty{padding:25px 12px;text-align:center;color:var(--muted)}#report{white-space:pre-wrap;font-size:11px;margin:10px 0;padding:11px;background:rgba(232,248,253,.78);border:1px solid rgba(45,145,183,.14);border-radius:10px;max-height:120px;overflow:auto}.hint{font-size:11px}.badge{font-size:10px;color:#176d91;background:rgba(215,244,253,.86);padding:3px 7px;border-radius:7px;letter-spacing:.4px;border:1px solid rgba(52,155,192,.18)}#bridge-status{font-size:11px;padding-left:2px}.eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#708792;margin:16px 0 5px;font-weight:650}.icon-btn{font-size:16px;line-height:1}.step{display:flex;align-items:center;gap:8px;margin:18px 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#365563;font-weight:700}.step-num{display:grid;place-items:center;width:24px;height:24px;border-radius:8px;background:linear-gradient(135deg,#68d8ef,#2189b8);color:#fff;font-size:11px;letter-spacing:0}.library-card{border-color:rgba(55,166,205,.3);background:linear-gradient(135deg,rgba(235,251,255,.86),rgba(255,255,255,.66));box-shadow:0 10px 24px rgba(45,145,183,.13)}.library-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.library-copy{min-width:0}.library-copy strong{display:block;font-size:14px}.library-copy p{margin:3px 0 0}.library-card #refresh{padding:10px 15px;white-space:nowrap}.token-help{font-size:11px;color:#58717f;margin-top:7px}.bridge-summary{display:flex;align-items:center;gap:8px}.bridge-summary strong{font-size:12px}.bridge-dot{width:8px;height:8px;border-radius:50%;background:#9298a1;box-shadow:0 0 0 4px rgba(146,152,161,.12)}.bridge-dot.live{background:#d0ff26;box-shadow:0 0 0 4px rgba(208,255,38,.14)}.link-button{margin-left:auto;background:transparent;border:0;box-shadow:none;padding:3px 0;color:#a7b0b9;font-size:11px}.link-button:hover:not(:disabled){background:transparent;box-shadow:none;color:#d0ff26}.token-editor{display:none;margin-top:10px}.token-editor.open{display:flex}.control-disabled{opacity:.55}
+
+/* Higgsfield-inspired dark workspace */
+:root{--ink:#f7f8fa;--muted:#9298a1;--line:rgba(255,255,255,.1);--accent:#d0ff26;--accent-deep:#a6d900;--glass:#191a1e}
+body{padding:12px;background:#0f1012;color:var(--ink);font-size:12px}
+.app-shell{border:1px solid rgba(255,255,255,.08);background:#121316;box-shadow:0 18px 45px rgba(0,0,0,.35);backdrop-filter:none;border-radius:18px;padding:15px}
+body:before,body:after{opacity:.2;filter:blur(45px)}body:before{background:#304b72}body:after{background:#243d1f}
+.top{padding:2px 1px 13px;border-bottom:1px solid rgba(255,255,255,.08)}.top h1{color:#f7f8fa}.logo{background:#d0ff26;color:#111;border:none;box-shadow:none;border-radius:8px}.badge{color:#10120d;background:#d0ff26;border:none;font-weight:700}
+.top:after{background:#d0ff26;box-shadow:0 0 0 4px rgba(208,255,38,.12)}
+h2{color:#f3f4f6;font-size:12px}p{color:var(--muted)}.eyebrow{color:#777d86}
+.hero{position:relative;overflow:hidden;border-radius:16px;padding:18px 16px 17px;margin-bottom:17px;background:linear-gradient(135deg,#2f3d6e 0%,#a73f8f 55%,#f08b61 100%);min-height:132px}.hero:after{content:"";position:absolute;width:170px;height:170px;right:-35px;top:-65px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.35),transparent 64%)}.hero-kicker{position:relative;z-index:1;color:rgba(255,255,255,.7);font-size:10px;letter-spacing:.13em;text-transform:uppercase}.hero h2{position:relative;z-index:1;margin:7px 0 4px;font-size:21px;letter-spacing:-.02em}.hero p{position:relative;z-index:1;color:rgba(255,255,255,.78);max-width:290px}.step{margin:16px 0 8px;color:#f4f5f7}.step-num{background:#282b31;color:#d0ff26;border:1px solid rgba(208,255,38,.35)}
+.section-card{border:1px solid rgba(255,255,255,.07);background:#191a1e;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,.16);backdrop-filter:none}.library-card{border-color:rgba(208,255,38,.25);background:linear-gradient(135deg,#1d261b,#1a1c1f)}.library-copy strong{color:#fff}.library-copy p{color:#9da4ac}
+button{border-color:rgba(255,255,255,.12);background:#222328;color:#f4f5f7;box-shadow:none}button:hover:not(:disabled){background:#2b2d33;box-shadow:0 5px 14px rgba(0,0,0,.25)}.primary,.primary:hover:not(:disabled){background:#d0ff26;color:#111;border-color:#d0ff26;box-shadow:0 7px 18px rgba(208,255,38,.16);filter:none}.primary:active:not(:disabled){transform:translateY(0);filter:brightness(.95)}
+input,select{border-color:rgba(255,255,255,.12);background:#222328;color:#f5f6f7}input::placeholder{color:#777d86}input:focus,select:focus{border-color:#d0ff26;box-shadow:0 0 0 3px rgba(208,255,38,.12)}.rule button{background:#222328}.match{color:#c9f15b}.unmatched{color:#e7ad67}.meta{color:#858b94}.row{border-bottom-color:rgba(255,255,255,.08)}#rows{border-color:rgba(255,255,255,.1);background:#15161a}.empty{color:#777d86}#status{color:#c9f15b}.hint{color:#858b94}.token-help{color:#777d86}.control-disabled{color:#676c74}.badge{font-size:9px}.report{background:#1b2a20}
+.library-card #refresh{padding:10px 14px}
+</style></head>
+<body><main class="app-shell">
+<div class="top"><span class="logo">f</span><h1>Align</h1><span class="badge">MVP</span></div>
+<p>把自由图层，连接到你的设计系统。</p><section class="hero"><div class="hero-kicker">Align workflow</div><h2>把设计稿变成组件系统</h2><p>加载文件组件，映射普通图层，然后一次性替换。</p></section>
+<div class="eyebrow">Workspace bridge</div><h2>Skill 连接</h2>
+<p class="hint">插件会自动连接本机 Skill 服务。只有自动连接失败或需要更换电脑时，才使用右侧“替换连接令牌”。</p>
+<section class="section-card"><div class="bridge-summary"><span id="bridge-dot" class="bridge-dot"></span><strong id="bridge-mode">正在自动连接 Skill</strong><button id="bridge-token-edit" class="link-button">替换连接令牌</button></div><div id="bridge-token-editor" class="actions token-editor"><input id="bridge-token" type="password" autocomplete="off" placeholder="粘贴备用连接令牌" aria-label="本地连接令牌"><button id="bridge-connect">手动连接</button><button id="bridge-disconnect" disabled>断开</button></div>
+<p id="bridge-status" role="status">正在从本机桥接服务获取连接配置…</p><p class="token-help">默认自动配置；只有更换电脑或桥接服务重启后自动连接失败，才需要替换令牌。</p></section>
+<div class="step"><span class="step-num">01</span>加载组件库</div>
+<section class="section-card library-card"><div class="library-row"><div class="library-copy"><strong id="library-title">先加载当前文件的组件</strong><p id="library-hint">组件可以来自文件中的任意设计系统页面。</p></div><button id="refresh" class="primary">刷新文件组件</button></div></section>
+<div class="step"><span class="step-num">02</span>设置名称映射</div>
+<p class="hint">左边填普通图层名，右边选择要替换成的正式组件。</p>
+<section class="section-card"><div id="rules"></div>
+<div class="actions right"><button id="add" disabled>＋ 添加规则</button></div></section>
+<div class="step"><span class="step-num">03</span>扫描并确认</div>
+<section class="section-card"><div class="actions right"><span id="page">等待加载组件库…</span><button id="scan" class="primary" disabled>扫描图层</button></div>
+<div id="status" role="status" aria-live="polite">请先点击“刷新文件组件”。</div>
+<div class="actions right" style="margin-bottom:8px"><label id="all-label" class="control-disabled"><input id="all" type="checkbox" disabled> 选择全部匹配项</label><span id="count">0 个待替换</span></div>
+<div id="rows"><div class="empty">加载组件库并设置映射后开始扫描。</div></div>
+<p class="hint">选中画布中的图层时只扫描选区；没有选区时扫描当前页面。</p></section>
+<div class="step"><span class="step-num">04</span>替换与报告</div>
+<section class="section-card"><div class="actions"><button id="replace" class="primary" disabled>替换选中图层</button><button id="download" disabled>下载 JSON 报告</button></div>
+<p class="hint">替换会修改当前文件。完成后可用 Figma 撤销恢复。</p>
+<div id="report" hidden></div></section></main>
+<script>
+const $=id=>document.getElementById(id);
+let components=[],rows=[],selected=new Set(),report=null,working=false,libraryReady=false,loadingLibrary=false;
+function post(type,data={}){parent.postMessage({pluginMessage:{type,...data}},'*')}
+function status(message){$('status').textContent=message}
+function lock(value){working=value;document.querySelectorAll('button,input,select').forEach(el=>{if(!el.id.startsWith('bridge-'))el.disabled=value});if(!value){$('refresh').disabled=false;document.querySelectorAll('#rules input,#rules select,#rules button').forEach(el=>el.disabled=!libraryReady);$('add').disabled=!libraryReady;$('scan').disabled=!libraryReady||!components.length;$('replace').disabled=!selected.size;$('download').disabled=!report;document.querySelectorAll('[data-unavailable]').forEach(el=>el.disabled=true)}}
+function addRule(source='',componentId=''){
+ const wrap=document.createElement('div');wrap.className='rule';
+ const input=document.createElement('input');input.placeholder='源图层名，如 Button';input.value=source;input.setAttribute('aria-label','源图层名');
+ const select=document.createElement('select');select.setAttribute('aria-label','目标组件');
+ const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='选择本地组件';select.append(placeholder);
+ components.forEach(c=>{const option=document.createElement('option');option.value=c.id;option.textContent=c.path;option.selected=c.id===componentId;select.append(option)});
+ const remove=document.createElement('button');remove.textContent='×';remove.setAttribute('aria-label','删除规则');remove.onclick=()=>{wrap.remove();invalidate()};
+ input.oninput=invalidate;select.onchange=invalidate;wrap.append(input,select,remove);$('rules').append(wrap);
+}
+function invalidate(){rows=[];selected.clear();renderRows();status('规则已更新，请重新扫描。')}
+function rules(){return [...document.querySelectorAll('.rule')].map(el=>({source:el.querySelector('input').value,componentId:el.querySelector('select').value}))}
+function updateCount(){const available=rows.filter(r=>r.status==='matched');const all=$('all');$('count').textContent=selected.size+' 个待替换';$('replace').disabled=working||!selected.size;all.disabled=working||available.length===0;$('all-label').classList.toggle('control-disabled',working||available.length===0);all.title=available.length?'选择全部匹配项':'扫描后出现可替换项时可全选';all.checked=available.length>0&&selected.size===available.length;all.indeterminate=selected.size>0&&selected.size<available.length}
+function renderRows(){
+ $('rows').replaceChildren();
+ if(!rows.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='暂无扫描结果。';$('rows').append(empty)}
+ rows.forEach(row=>{
+  const el=document.createElement('div');el.className='row';
+  const check=document.createElement('input');check.type='checkbox';check.setAttribute('aria-label','选择 '+row.name);check.checked=selected.has(row.id);check.disabled=row.status!=='matched';if(check.disabled)check.dataset.unavailable='true';check.onchange=()=>{check.checked?selected.add(row.id):selected.delete(row.id);updateCount()};
+  const detail=document.createElement('div');detail.className='detail';
+  const name=document.createElement('div');name.className='name';name.textContent=row.name;
+  const path=document.createElement('div');path.className='meta';path.textContent=row.path;path.title=row.path;
+  const target=document.createElement('div');target.className=row.status==='matched'?'match':'unmatched';target.textContent=row.status==='matched'?'→ '+row.componentName:row.status==='success'?'✓ 已替换':row.status==='ambiguous'?'多条规则目标冲突，请调整规则':'无对应规则 · 保留原图层';
+  const focus=document.createElement('button');focus.textContent='定位';focus.onclick=()=>post('focus',{id:row.newNodeId||row.id});
+  detail.append(name,path,target);el.append(check,detail,focus);$('rows').append(el);
+ });updateCount();
+}
+$('add').onclick=()=>{addRule();invalidate()};
+$('refresh').onclick=()=>{loadingLibrary=true;lock(true);status('正在读取文件内组件…');post('init')};
+$('scan').onclick=()=>{lock(true);status('正在扫描当前页面…');post('scan',{rules:rules()})};
+$('all').onchange=()=>{selected=$('all').checked?new Set(rows.filter(r=>r.status==='matched').map(r=>r.id)):new Set();renderRows()};
+$('replace').onclick=()=>{lock(true);status('正在替换，请保持当前页面…');post('replace',{ids:[...selected]})};
+$('download').onclick=()=>{if(!report)return;const blob=new Blob([JSON.stringify(report,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='forma-migration-report-'+Date.now()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+window.onmessage=event=>{
+ const message=event.data.pluginMessage;if(!message)return;
+ if(message.type==='skill-result'){handleSkillResult(message);return;}
+ if(message.type==='ready'){
+  const previous=rules();components=message.components;$('rules').replaceChildren();
+  if(previous.length)previous.forEach(rule=>addRule(rule.source,rule.componentId));else addRule();
+  rows=[];selected.clear();renderRows();$('page').textContent=message.pageName+' · '+components.length+' 个组件';
+  if(loadingLibrary){libraryReady=true;loadingLibrary=false;$('library-title').textContent=components.length?'组件库已加载':'未找到本地组件';$('library-hint').textContent=components.length?'现在可以设置名称映射。':'请先在文件中创建或复制正式组件。';status(components.length?'组件库已加载，请设置名称映射。':'文件内没有本地组件，请先创建或复制组件。');}
+  else {status('请先点击“刷新文件组件”加载组件库。');}
+  lock(false);
+ }else if(message.type==='scan-result'){
+  rows=message.rows;selected=new Set(rows.filter(row=>row.status==='matched').map(row=>row.id));renderRows();$('page').textContent=message.pageName;status(selected.size?'检查 '+message.visited+' 个容器，匹配 '+selected.size+' 个；跳过 '+message.protectedCount+' 个受保护子树。':'没有匹配项。请检查图层名称、目标组件和扫描范围。');lock(false);
+ }else if(message.type==='progress')status('正在替换 '+message.completed+' / '+message.total+'…');
+ else if(message.type==='report'){
+  report=message.report;report.entries.forEach(entry=>{if(entry.status==='success'){const row=rows.find(r=>r.id===(entry.sourceNodeId||entry.sourceId));if(row){row.status='success';row.newNodeId=entry.newNodeId}selected.delete(entry.sourceNodeId||entry.sourceId)}});renderRows();
+  $('report').hidden=false;$('report').textContent=report.succeeded+' 成功 / '+report.failed+' 失败\n'+report.entries.map(entry=>(entry.status==='success'?'✓ ':'✕ ')+(entry.sourceName||entry.sourceId||entry.sourceNodeId)+(entry.reason?'：'+entry.reason:'')+(entry.warnings&&entry.warnings.length?'\n  '+entry.warnings.join('\n  '):'')).join('\n');status('替换完成。可下载完整报告，或重新扫描。');lock(false);
+ }else if(message.type==='error'){status(message.message);lock(false)}
+};
+const bridge={url:'http://localhost:8766',token:'',sessionId:'',connected:false,timer:null,handshake:null,target:null};
+function bridgeStatus(text){$('bridge-status').textContent=text}
+async function bridgeRequest(path,body){
+ const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),6000);
+ try{const response=await fetch(bridge.url+path,{method:'POST',headers:{Authorization:'Bearer '+bridge.token,'Content-Type':'application/json'},body:JSON.stringify(body),signal:controller.signal});const data=await response.json();if(!response.ok)throw new Error(data.error||'连接失败');return data}finally{clearTimeout(timeout)}
+}
+function bridgeControls(){
+ $('bridge-connect').disabled=bridge.connected;
+ $('bridge-disconnect').disabled=!bridge.connected;
+ $('bridge-token').disabled=bridge.connected;
+ $('bridge-token-edit').textContent=$('bridge-token-editor').classList.contains('open')?'取消':'替换连接令牌';
+ $('bridge-dot').classList.toggle('live',bridge.connected);
+ if(bridge.connected){$('bridge-mode').textContent='Skill 已自动连接';$('bridge-token-editor').classList.remove('open')}
+}
+async function handleSkillResult(message){
+ if(bridge.handshake&&message.requestId===bridge.handshake.id){const pending=bridge.handshake;bridge.handshake=null;clearTimeout(pending.timer);message.error?pending.reject(new Error(message.error)):pending.resolve(message.result);return}
+ if(!bridge.connected)return;
+ try{await bridgeRequest('/result',{sessionId:bridge.sessionId,requestId:message.requestId,...(message.error?{error:message.error}:{result:message.result})});bridgeStatus('Skill 已连接 · 上次命令已完成')}
+ catch(error){bridgeStatus('结果未送达：'+error.message+'。请检查设计稿，不要重复执行替换。')}
+}
+async function pollBridge(){
+ if(!bridge.connected)return;
+ try{const data=await bridgeRequest('/poll',{sessionId:bridge.sessionId});if(!bridge.connected)return;if(data.job){bridgeStatus('执行 Skill 命令：'+data.job.command);post('skill-command',{requestId:data.job.requestId,command:data.job.command,args:{...data.job.args,_bridgePageId:bridge.target.pageId}})}}
+ catch(error){bridge.connected=false;bridgeControls();bridgeStatus('连接中断：'+error.message+'。如有执行中的替换，请检查设计稿。');return}
+ bridge.timer=setTimeout(pollBridge,1000);
+}
+async function connectWithToken(token,automatic=false){
+ bridge.token=token.trim();if(!bridge.token)throw new Error('请先输入连接令牌');
+ const id='connect-'+(Date.now().toString(36)+'-'+Math.random().toString(36).slice(2)+'-'+Math.random().toString(36).slice(2));
+ const target=await new Promise((resolve,reject)=>{const timer=setTimeout(()=>{bridge.handshake=null;reject(new Error('插件未响应，请重新运行插件'))},10000);bridge.handshake={id,resolve,reject,timer};post('skill-command',{requestId:id,command:'ping',args:{}})});
+ bridge.target=target;bridge.sessionId=(Date.now().toString(36)+'-'+Math.random().toString(36).slice(2)+'-'+Math.random().toString(36).slice(2));await bridgeRequest('/connect',{sessionId:bridge.sessionId,target});bridge.connected=true;bridgeControls();bridgeStatus(automatic?'已自动连接本机 Skill 服务 · '+(target.pageName||'当前页面'):'Skill 已连接 · '+(target.pageName||'当前页面'));pollBridge();
+}
+async function autoConnect(){
+ try{const response=await fetch(bridge.url+'/bootstrap');const data=await response.json();if(!response.ok||!data.token)throw new Error(data.error||'桥接服务未启动');await connectWithToken(data.token,true)}
+ catch(error){$('bridge-mode').textContent='自动连接失败';bridgeStatus('自动连接失败：点击右上角“替换连接令牌”后再手动连接。');$('bridge-token-editor').classList.remove('open');bridgeControls()}
+}
+$('bridge-token-edit').onclick=async()=>{if($('bridge-token-editor').classList.contains('open')){$('bridge-token-editor').classList.remove('open');$('bridge-mode').textContent=bridge.connected?'Skill 已自动连接':'等待连接 Skill';bridgeControls();if(bridge.connected)bridgeStatus('已自动连接本机 Skill 服务 · '+(bridge.target&&bridge.target.pageName||'当前页面'));else{bridgeStatus('正在恢复自动连接…');autoConnect()}return}if(bridge.connected){const oldSession=bridge.sessionId;bridge.connected=false;clearTimeout(bridge.timer);try{await bridgeRequest('/disconnect',{sessionId:oldSession})}catch(_){} }$('bridge-token-editor').classList.add('open');$('bridge-mode').textContent='替换 Skill 连接令牌';$('bridge-token').disabled=false;$('bridge-connect').disabled=false;$('bridge-token').focus();bridgeControls();bridgeStatus('请输入新的本机桥接令牌，然后点击“手动连接”。')};
+$('bridge-connect').onclick=async()=>{ $('bridge-connect').disabled=true;try{await connectWithToken($('bridge-token').value,false)}catch(error){bridgeStatus('未连接：'+error.message);bridgeControls()} };
+$('bridge-disconnect').onclick=async()=>{bridge.connected=false;clearTimeout(bridge.timer);bridgeControls();try{await bridgeRequest('/disconnect',{sessionId:bridge.sessionId})}catch(_){}bridgeStatus('已断开。点击“替换连接令牌”可重新连接。')};
+lock(true);post('init');autoConnect();
+</script></body></html>
